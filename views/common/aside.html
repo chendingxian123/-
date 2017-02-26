@@ -1,30 +1,27 @@
 <!-- 侧边栏 -->
 <div class="aside">
         <!-- 个人资料 -->
-        <div class="profile">
+        <div class="profile" id="touxiang">
             <!-- 头像 -->
-            <div class="avatar img-circle">
-                <img src="./uploads/avatar.jpg">
-            </div>
-            <h4>布头儿</h4>
+            <!-- 占坑 -->
         </div>
         <!-- 导航菜单 -->
         <div class="navs">
             <ul class="list-unstyled">
                 <li>
-                    <a href="./index.html" class="active">
+                    <a href="/" class="active">
                         <i class="fa fa-home"></i>
                         仪表盘
                     </a>
                 </li>
                 <li>
-                    <a href="./user_list.html">
+                    <a href="/user/profile">
                         <i class="fa fa-bell"></i>
                         用户管理
                     </a>
                 </li>
                 <li>
-                    <a href="./teacher_list.html">
+                    <a href="/teacher/list">
                         <i class="fa fa-bell"></i>
                         讲师管理
                     </a>
@@ -86,3 +83,12 @@
             </ul>
         </div>
 </div>
+ <script type="text/html" id="touxiang_tpl">
+          {{each data}}
+             <div class="avatar img-circle">
+                <img src="{{$value.tc_avatar}}">
+            </div>
+            <h4>{{$value.tc_name}}</h4>
+          {{/each}}
+            
+   </script>

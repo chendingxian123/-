@@ -6,8 +6,14 @@ require.config({
        nprogress:"assets/nprogress/nprogress",
        echarts:"assets/echarts/echarts.min",
        cookie:"assets/jquery-cookie/jquery.cookie",
+       template:"assets/artTemplate/template",
        common:"js/common"
 	},
+	shim:{
+		bootstrap:{
+			deps:["jquery"]
+		}
+	}
 });
 
 require(["common"]);	

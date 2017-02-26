@@ -1,18 +1,18 @@
-define(["jquery","cookie"],function($){
+define(["jquery","template","cookie"],function($,template){
 	//确认是否同个人
-if(location.pathname=="/login"){
-	return;
-}
+
 if(!$.cookie("PHPSESSID") && location.pathname!="/login"){
+
 	location.href="/login";
+	
 }
 // 头像及名字同步
-var touxiang=$(".profile").find("img");
-var mingzi=$(".profile").find("h4");
-var data=JSON.parse($.cookie("data"));
 
-touxiang.attr("src",data.tc_avatar);
-mingzi.text(data.tc_name);
+
+var data=JSON.parse($.cookie("data"));
+var html=template("touxiang_tpl",{data:{data}});
+$("#touxiang").html(html);
+
 
 // 退出功能
 $("#tuichu").on("click",function(){
@@ -24,7 +24,7 @@ $("#tuichu").on("click",function(){
 		type:"post",
 		success:function(e){
             if(e.code==="200"){
-            	location.href="./login"
+            	location.href="/login"
             }
 		}
 	})

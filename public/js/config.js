@@ -7,7 +7,9 @@ require.config({
        echarts:"assets/echarts/echarts.min",
        cookie:"assets/jquery-cookie/jquery.cookie",
        template:"assets/artTemplate/template",
-       common:"js/common"
+       common:"js/common",
+       tool:"js/tool"
+
 	},
 	shim:{
 		bootstrap:{

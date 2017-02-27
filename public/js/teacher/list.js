@@ -6,10 +6,12 @@ define(["jquery","template","tool","bootstrap"],function($,template,tool){
    	url:"/api/teacher",
    	type:"get",
    	success:function(e){
-
+     
     if(e.code===200){
       var html=template("teacher_list_tpl",{list:e.result});
       $("#tbody_list").html(html);
+      console.log(e);
+
     }
    	}
    });
@@ -32,6 +34,8 @@ define(["jquery","template","tool","bootstrap"],function($,template,tool){
    	  	}
    	  })  	    	  
    })
+
+   // 注销事件
    $("#tbody_list").on("click","#handle",function(){
        var $this=$(this);
        var id=$this.parent().data("id");
@@ -56,7 +60,5 @@ define(["jquery","template","tool","bootstrap"],function($,template,tool){
         }
        })
    })
-   // $(("#tbody_list").on("click","#edit",function(){
 
-   // })
 })

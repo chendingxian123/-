@@ -1,6 +1,8 @@
 define(["jquery","template","cookie"],function($,template){
 	//确认是否同个人
-
+if(location.pathname ==="/login"){
+	return;
+}
 if(!$.cookie("PHPSESSID") && location.pathname!="/login"){
 
 	location.href="/login";

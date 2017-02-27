@@ -1,4 +1,5 @@
 define(["jquery","template","tool"],function($,template,tool){
+  // 显示高亮
   tool.setlink("/teacher/list");
 	  function GetParam(url, id) {
             url = url+ "";
@@ -10,8 +11,11 @@ define(["jquery","template","tool"],function($,template,tool){
                 return result[2];
             }
         }
+
+    // 根据有无ID值 生成模版结构
 	var url=location.search;
 	var id=GetParam(url,"tc_id");
+
 
      if(id){
      	$.ajax({
@@ -21,11 +25,44 @@ define(["jquery","template","tool"],function($,template,tool){
        	e.result.id=id;
        	var html=template("teacher_edit_tpl",e.result);
        	$("#teacher_add").html(html);
-       }
+          $("#teacher_save").on("click",function(){
+            var form=$("#teacher_adds").serialize();
+            form=form+"&tc_id="+id;
+            $.ajax({
+              url:"/api/teacher/update",
+              type:"post",
+              data:form,
+              success:function(e){
+                location.href="/teacher/list";
+              }
+            })
+
+        }) 
+
+    }
 	})
-     }else{
+}else{
      		var html=template("teacher_edit_tpl",{});
-       	$("#teacher_add").html(html);
+           	$("#teacher_add").html(html);
+             $("#teacher_zengjia_tmp").on("click",function(){
+                var form=$("#teacher_adds").serialize();
+
+                // var slt=$("#teacher_adds_s option[selected]").val();
+                // form=form+"&tc_type="+slt;
+                
+                $.ajax({
+                    url:"/api/teacher/add",
+                    type:"post",
+                    data:form,
+                    success:function(e){
+                        location.href="/teacher/list";
+                        
+                    }
+
+                })
+      })
      }
+  
+
 	
 })

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
  <?php include "/views/common/style.html" ?>
+ <link rel="stylesheet" href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker3.css">
 </head>
 <body>
     
@@ -36,15 +37,17 @@
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">姓名</label>
                     <div class="col-md-4">
-                        <input type="text" name="tc_name" class="form-control input-sm" value="{{tc_name}}">
+                        <input type="text" name="tc_name" class="form-control input-sm" value="{{tc_name}}"data-required data-description="tcNameDesc" data-describedby="tc_name-desc">
                     </div>
+                     <p class="help-block" id="tc_name-desc"></p>
                 </div>
                 <div class="form-group">
                 {{if !id}}
                 <label for="" class="col-md-3 control-label">密码</label>
                 <div class="col-md-4">
-                        <input type="password" name="tc_pass"class="form-control input-sm">
-                    </div>
+                        <input type="password" name="tc_pass"class="form-control input-sm"data-required data-description="tcPassDesc" data-describedby="tc_pass-desc">
+                </div>
+                <p class="help-block" id="tc_pass-desc"></p>
                 {{/if}}
                     
                     
@@ -52,8 +55,12 @@
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">入职时间</label>
                     <div class="col-md-4">
-                        <input type="text" name="tc_join_date"class="form-control input-sm" value="{{tc_join_date}}">
+                        <input type="text" name="tc_join_date"class="form-control input-sm" data-provide="datepicker"
+                        data-date-format="yyyy-mm-dd"
+                        data-date-end-date="0d"
+                        data-date-language="zh-CN" value="{{tc_join_date}}"data-required data-description="tcJoinDateDesc" data-describedby="tc_join_date-desc">
                     </div>
+                    <p class="help-block" id="tc_join_date-desc"></p>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-md-3 control-label">类型</label>
@@ -87,9 +94,9 @@
                 <div class="form-group">
                     <div class="col-md-7">
                     {{if id}}
-                    <a href="javascript:;" class="btn btn-success btn-sm pull-right"  id="teacher_save" > 保 存 </a>
+                    <input type="submit" class="btn btn-success btn-sm pull-right"  id="teacher_save"value="保存" > 
                     {{else}}
-                    <a href="javascript:;" class="btn btn-success btn-sm pull-right" id="teacher_zengjia_tmp"> 添 加 </a>
+                    <input   type="submit" class="btn btn-success btn-sm pull-right" id="teacher_zengjia_tmp"value="添加 "> 
                     {{/if}}
 
                         

@@ -27,12 +27,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:;">
+                    <a href="javascript:;" class="list_adds">
                         <i class="fa fa-cog"></i>
                         课程管理
                         <i class="arrow fa fa-angle-right"></i>
                     </a>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled ">
                         <li>
                             <a href="./course_add.html">
                                  课程添加
@@ -83,10 +83,17 @@
             </ul>
         </div>
 </div>
- <script type="text/html" id="touxiang_tpl">
+<div class="mask">
+    <img src="../../public/images/loading.gif" alt="">
+</div>
+    <script type="text/html" id="touxiang_tpl">
           {{each data}}
              <div class="avatar img-circle">
+             {{if $value.tc_avatar}}
                 <img src="{{$value.tc_avatar}}">
+            {{else}}
+               <img src="../../uploads/default">
+            {{/if}}
             </div>
             <h4>{{$value.tc_name}}</h4>
           {{/each}}

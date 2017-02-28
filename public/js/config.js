@@ -7,12 +7,21 @@ require.config({
        echarts:"assets/echarts/echarts.min",
        cookie:"assets/jquery-cookie/jquery.cookie",
        template:"assets/artTemplate/template",
+       validate:"assets/Validate-master/jquery-validate.min",
        common:"js/common",
-       tool:"js/tool"
+       tool:"js/tool",
+       datepicker:"assets/bootstrap-datepicker/js/bootstrap-datepicker.min",
+       dateLanguege:"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min"
 
 	},
 	shim:{
 		bootstrap:{
+			deps:["jquery"]
+		},
+		dateLanguege:{
+			deps:["jquery","datepicker"]
+		},
+		validate:{
 			deps:["jquery"]
 		}
 	}

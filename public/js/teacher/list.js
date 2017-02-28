@@ -10,7 +10,6 @@ define(["jquery","template","tool","bootstrap"],function($,template,tool){
     if(e.code===200){
       var html=template("teacher_list_tpl",{list:e.result});
       $("#tbody_list").html(html);
-      console.log(e);
 
     }
    	}

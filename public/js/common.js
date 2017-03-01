@@ -8,7 +8,7 @@ if(!$.cookie("PHPSESSID") && location.pathname!="/login"){
 	location.href="/login";
 	
 }
-// 头像及名字同步
+
 $(".list_adds").on("click",function(){
 	$(this).next().slideToggle();
 	$(this).children(".fa-angle-right").toggleClass("fa-angle-down");
@@ -24,6 +24,7 @@ $(document).ajaxStop(function(){
 	$(".mask").hide();
 })
 var data=JSON.parse($.cookie("data"));
+// 头像及名字同步
 var html=template("touxiang_tpl",{data:{data}});
 $("#touxiang").html(html);
 

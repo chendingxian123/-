@@ -8,8 +8,12 @@ require.config({
        cookie:"assets/jquery-cookie/jquery.cookie",
        template:"assets/artTemplate/template",
        validate:"assets/Validate-master/jquery-validate.min",
+       uploadify:"assets/uploadify/jquery.uploadify.min",
        common:"js/common",
        tool:"js/tool",
+       region:"assets/jquery-region/jquery.region",
+       form:"assets/jquery-form/jquery.form",
+       ckeditor:"assets/ckeditor/ckeditor",
        datepicker:"assets/bootstrap-datepicker/js/bootstrap-datepicker.min",
        dateLanguege:"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min"
 
@@ -18,10 +22,22 @@ require.config({
 		bootstrap:{
 			deps:["jquery"]
 		},
+		region:{
+			deps:["jquery"]
+		},
+		form:{
+			deps:["jquery"]
+		},
+		ckeditor:{
+			exports:"CKEDITOR"
+		},
 		dateLanguege:{
 			deps:["jquery","datepicker"]
 		},
 		validate:{
+			deps:["jquery"]
+		},
+		uploadify:{
 			deps:["jquery"]
 		}
 	}

@@ -52,7 +52,7 @@ define(["jquery","template","tool","dateLanguege","validate"],function($,templat
     // 根据有无ID值 生成模版结构
   }
 	var url=location.search;
-	var id=GetParam(url,"tc_id");
+	var id=GetParam("tc_id");
 
 
      if(id){
